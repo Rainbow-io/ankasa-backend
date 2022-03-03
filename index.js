@@ -47,7 +47,7 @@ app.use(morgan('dev'))
 
 
 // routes
-app.use('/', routeAll)
+app.use('/app', routeAll)
 
 
 
