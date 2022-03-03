@@ -41,6 +41,8 @@ io.on('connection', (socket) => {
 // middleware
 app.use(express.json())
 app.use(cors())
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 // middleware-logging
 app.use(morgan('dev'))
