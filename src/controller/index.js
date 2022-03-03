@@ -48,7 +48,7 @@ const register = async (req, res, next) => {
     }
 }
 
-const Login = async (req, res, next) => {
+const login = async (req, res, next) => {
     try {
         const { email, password } = req.body
         const login = await model.readUser(email)
@@ -86,5 +86,6 @@ const Login = async (req, res, next) => {
 
 module.exports = {
     testController,
-    register
+    register,
+    login
 }

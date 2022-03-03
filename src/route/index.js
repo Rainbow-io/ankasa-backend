@@ -8,6 +8,7 @@ const route = express.Router()
 
 // route.get('/test')
 route.post('/register', controller.register)
+route.post('/login', controller.login)
 
 
 
