@@ -6,10 +6,13 @@ const route = express.Router()
 
 
 
-// route.get('/test')
+// AUTH
 route.post('/register', controller.register)
 route.post('/login', controller.login)
 
+
+// FLIGHT
+route.get('/list-flight', controller.listFlight)
 
 
 module.exports = route

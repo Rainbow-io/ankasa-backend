@@ -50,10 +50,23 @@ const insertUsers = (data) => {
     })
 }
 
+const readAllairline = () => {
+    return new Promise((resolve,reject) => {
+        connection.query('SELECT * FROM airline', data,(err, results) => {
+            if (err) {
+              reject(err)
+            } else {
+              resolve(results)
+            }
+        })
+    })
+}
+
 
 module.exports = {
     testModel,
     readUser,
     readAlluser,
-    insertUsers
+    insertUsers,
+    readAllairline
 }
