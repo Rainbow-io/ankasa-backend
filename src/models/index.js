@@ -14,9 +14,9 @@ const testModel = () => {
 }
 
 
-const readUser = (username) => {
+const readUser = (email) => {
     return new Promise((resolve, reject) => {
-        connection.query(`SELECT * FROM users where username = "${username}"`, (err, results) => {
+        connection.query(`SELECT * FROM users where email = "${email}"`, (err, results) => {
             if (err) {
                 reject(err)
             } else {
