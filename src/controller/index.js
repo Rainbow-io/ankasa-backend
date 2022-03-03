@@ -97,13 +97,13 @@ const listFlight = async (req, res, next) => {
             return city.name.match(arrival) && city.country.match('ID')
         })
         let distance = haversine(departureDetail[0].loc.coordinates, arrivalDetail[0].loc.coordinates) / 1000
-        const planese = await model.readAllairline()
-        console.log(planese)
-        const planes = [
-            { id: 1, name: "garuda air", speed: 9, price: 0.06 },
-            { id: 2, name: "lion air", speed: 9.5, price: 0.07 },
-            { id: 3, name: "air air lah", speed: 8.5, price: 0.08 }
-        ]
+        const planes = await model.readAllairline()
+        console.log(planes)
+        // const planes = [
+        //     { id: 1, name: "garuda air", speed: 9, price: 0.06 },
+        //     { id: 2, name: "lion air", speed: 9.5, price: 0.07 },
+        //     { id: 3, name: "air air lah", speed: 8.5, price: 0.08 }
+        // ]
         console.log(planes)
         const duration = (durasi) => {
             let hours = (durasi / 60);
