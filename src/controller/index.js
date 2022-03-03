@@ -27,7 +27,7 @@ const register = async (req, res, next) => {
         const includeusername = emaillist.map(username => username.username)
         console.log(includeusername)
         const data = {
-            id: idUser,
+            iduser: idUser,
             username: fullname + idUser,
             email,
             password: hashpassword
@@ -37,7 +37,7 @@ const register = async (req, res, next) => {
         }else if (includemail.includes(email)) {
             return next(createError(401, 'email already registered'))
         } else {
-            const register = await userModel.insertUsers(data)
+            const register = await model.insertUsers(data)
             standartRespons.respons(res, data, 200, 'test')
         }
     }
