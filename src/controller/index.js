@@ -27,7 +27,7 @@ const register = async (req, res, next) => {
         const includeusername = emaillist.map(username => username.username)
         console.log(includeusername)
         const data = {
-            iduser: idUser,
+            idusers: idUser,
             username: fullname + idUser,
             email,
             password: hashpassword
