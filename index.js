@@ -5,6 +5,7 @@ const app = express()
 const cors = require('cors')
 const morgan = require('morgan')
 const bodyParser = require('body-parser');
+const routeAll = require('./src/route/index')
 const { createServer } = require("http");
 const { Server } = require("socket.io");
 const httpServer = createServer(app);
@@ -43,6 +44,11 @@ app.use(cors())
 
 // middleware-logging
 app.use(morgan('dev'))
+
+
+// routes
+app.use('/', routeAll)
+
 
 
 
