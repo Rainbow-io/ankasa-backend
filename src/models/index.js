@@ -54,5 +54,6 @@ const insertUsers = (data) => {
 module.exports = {
     testModel,
     readUser,
-    readAlluser
+    readAlluser,
+    insertUsers
 }
