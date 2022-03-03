@@ -160,6 +160,7 @@ const listFlight = async (req, res, next) => {
 
             let data = {
                 airline: planes[spin2].name,
+                photo: planes[spin2].photo,
                 duration: duration((distance / (planes[spin2].speed)).toFixed(2)),
                 price: (Math.round(distance) * planes[spin2].price).toFixed(1),
                 facilities: 'meal, luggage, wifi',
