@@ -1,4 +1,9 @@
 const model = require('../models/index')
+const bcrypt = require('bcrypt')
+const createError = require('http-errors')
+const standartRespons = require('../helper/common')
+const jwt = require('jsonwebtoken')
+
 
 const testController = async (req, res, next) => {
     try {
