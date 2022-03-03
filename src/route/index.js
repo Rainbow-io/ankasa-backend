@@ -6,7 +6,8 @@ const { verifyToken } = require('../helper/auth')
 
 
 
-route.get('/test')
+// route.get('/test')
+route.get('/register', controller.register)
 
 
 
