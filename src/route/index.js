@@ -1,13 +1,13 @@
 const express = require('express')
-const route = express.Router()
 const controller = require('../controller/index')
 const model = require('../controller/index')
 const { verifyToken } = require('../helper/auth')
+const route = express.Router()
 
 
 
 // route.get('/test')
-route.get('/register', controller.register)
+route.post('/register', controller.register)
 
 
 
