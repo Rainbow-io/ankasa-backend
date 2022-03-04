@@ -89,7 +89,7 @@ const login = async (req, res, next) => {
 
 const listFlight = async (req, res, next) => {
     try {
-        const { departure, arrival } = req.body
+        const { departure, arrival, classs } = req.body
         const departureDetail = cities.filter(city => {
             return city.name.match(departure) && city.country.match('ID')
         })
@@ -163,8 +163,8 @@ const listFlight = async (req, res, next) => {
             const classes = classList[spin3]
             let data = {
                 id: Math.floor(Math.random() * 999) + 1,
-                departure : departureDetail[0].name,
-                arrival : arrivalDetail[0].name,
+                departure: departureDetail[0].name,
+                arrival: arrivalDetail[0].name,
                 airline: planes[spin2].name,
                 logo: planes[spin2].photo,
                 duration: duration((distance / (planes[spin2].speed)).toFixed(2)),
@@ -178,6 +178,10 @@ const listFlight = async (req, res, next) => {
                 class: classes
             }
             dataPlane.push(data)
+        }
+        if (classs) {
+            let planeClass = dataPlane.filter(city => city.class.match(classs))
+            return standartRespons.respons(res, planeClass, 200, `6 airline available at this time`)
         }
 
         console.log(departureDetail)
