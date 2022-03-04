@@ -150,6 +150,8 @@ const listFlight = async (req, res, next) => {
             }
             return 'wiw'
         }
+
+        const classList = ['bussines', 'economy']
         let time = [1445, 70]
         console.log(duration(770))
         let dataPlane = []
@@ -157,7 +159,8 @@ const listFlight = async (req, res, next) => {
         for (let index = 0; index < 6; index++) {
             let h = Math.floor(Math.random() * 1200) + 82
             const spin2 = Math.floor(Math.random() * planes.length)
-
+            const spin3 = Math.floor(Math.random() * classList.length)
+            const classes = classList[spin3]
             let data = {
                 id: Math.floor(Math.random() * 999) + 1,
                 departure : departureDetail[0].name,
@@ -171,7 +174,8 @@ const listFlight = async (req, res, next) => {
                 arrival_type: arrivalTime(h, (distance / (planes[0].speed))),
                 depature_time: dt,
                 arrival_time: at,
-                transit: '1 transit'
+                transit: '1 transit',
+                class: classes
             }
             dataPlane.push(data)
         }
