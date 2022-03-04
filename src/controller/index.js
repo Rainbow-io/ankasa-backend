@@ -159,8 +159,11 @@ const listFlight = async (req, res, next) => {
             const spin2 = Math.floor(Math.random() * planes.length)
 
             let data = {
+                id: Math.floor(Math.random() * 999) + 1,
+                departure : departureDetail[0].name,
+                arrival : arrivalDetail[0].name,
                 airline: planes[spin2].name,
-                photo: planes[spin2].photo,
+                logo: planes[spin2].photo,
                 duration: duration((distance / (planes[spin2].speed)).toFixed(2)),
                 price: (Math.round(distance) * planes[spin2].price).toFixed(1),
                 facilities: 'meal, luggage, wifi',
@@ -168,15 +171,13 @@ const listFlight = async (req, res, next) => {
                 arrival_type: arrivalTime(h, (distance / (planes[0].speed))),
                 depature_time: dt,
                 arrival_time: at,
+                transit: '1 transit'
             }
             dataPlane.push(data)
         }
 
         console.log(departureDetail)
-        standartRespons.respons(res, {
-            destination: { departure: departureDetail[0].name, arrival: arrivalDetail[0].name },
-            listPlane: dataPlane
-        }, 200, 'api success')
+        standartRespons.respons(res, dataPlane, 200, 'api success')
 
     } catch (error) {
         console.log(error)
