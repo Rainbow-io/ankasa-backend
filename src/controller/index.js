@@ -177,7 +177,7 @@ const listFlight = async (req, res, next) => {
         }
 
         console.log(departureDetail)
-        standartRespons.respons(res, dataPlane, 200, 'api success')
+        standartRespons.respons(res, dataPlane, 200, `6 airline available at this time`)
 
     } catch (error) {
         console.log(error)
