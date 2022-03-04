@@ -12,7 +12,7 @@ route.post('/login', controller.login)
 
 
 // FLIGHT
-route.get('/list-flight', controller.listFlight)
+route.post('/list-flight', controller.listFlight)
 
 
 module.exports = route
