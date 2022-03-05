@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 1234
 
 // socket
 io.on('connection', (socket) => {
-  socket.on('User ID', (data)=>{
+  socket.on('User ID', (id)=>{
     console.log(`user ${id} online`)
     socket.join(id)
   })
