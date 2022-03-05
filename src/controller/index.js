@@ -210,7 +210,7 @@ const profile = async (req, res, next) => {
 
 const allProfile = async (req, res, next) => {
     try {
-        const result = model.readAlluser()
+        const result = await model.readAlluser()
         console.log(result)
         standartRespons.respons(res, result, 200, 'success')
 
