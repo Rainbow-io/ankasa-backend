@@ -21,9 +21,9 @@ const PORT = process.env.PORT || 1234
 
 // socket
 io.on('connection', (socket) => {
-  socket.on('userOnline', (data)=>{
-    console.log(`user ${data.user_id} online`)
-    socket.join(data.user_id)
+  socket.on('User ID', (data)=>{
+    console.log(`user ${id} online`)
+    socket.join(id)
   })
 
   socket.on('disconnect', ()=> {
