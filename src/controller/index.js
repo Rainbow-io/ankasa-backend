@@ -64,7 +64,8 @@ const login = async (req, res, next) => {
         const payload = {
             id: login[0].id,
             username: login[0].username,
-            email: login[0].email
+            email: login[0].email,
+            photo : login[0].photo
         }
         const verifyOption = {
             expiresIn: '1 day'
