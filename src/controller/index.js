@@ -242,6 +242,24 @@ const changeProfile = async (req, res, next) => {
     }
 }
 
+const changePhoto = async (req, res, next) => {
+    try {
+        const userid = req.params.id
+        const photo = req.file.filename
+        const data = {
+            photo : `https://ankasa-rainbow.herokuapp.com/file/${photo}`
+        }
+        
+        const result = await model.updateProfile(data, userid)
+        standartRespons.respons(res, data.photo, 200, 'success update photo')
+
+    } catch (error) {
+        console.log(error)
+        const err = new createError.InternalServerError()
+        next(err)
+    }
+}
+
 module.exports = {
     testController,
     register,
@@ -249,5 +267,6 @@ module.exports = {
     listFlight,
     profile,
     allProfile,
-    changeProfile
+    changeProfile,
+    changePhoto
 }
