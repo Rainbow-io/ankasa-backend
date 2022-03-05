@@ -199,8 +199,7 @@ const profile = async (req, res, next) => {
         const token = req.headers.authorization.split(' ')[1]
         const decoded = jwt.verify(token, process.env.SECRET_KEY_JWT)
         const user = await model.readUser(decoded.email)
-
-        responsStandart.respons(res, user, 200, 'api success')
+        standartRespons.respons(res, user, 200, 'api success')
 
     } catch (error) {
         console.log(error)
