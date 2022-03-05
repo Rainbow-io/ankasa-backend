@@ -11,7 +11,8 @@ route.post('/register', controller.register)
 route.post('/login', controller.login)
 
 // user
-route.get('/profile', verifyToken , controller.profile)
+route.get('/profile', verifyToken, controller.allProfile)
+route.get('/profile/:id', verifyToken , controller.profile)
 
 
 // FLIGHT

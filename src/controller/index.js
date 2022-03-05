@@ -31,6 +31,7 @@ const register = async (req, res, next) => {
         console.log(includeusername)
         const data = {
             idusers: idUser,
+            fullname: fullname,
             username: fullname + idUser,
             email,
             password: hashpassword
@@ -63,9 +64,13 @@ const login = async (req, res, next) => {
         const secretKey = process.env.SECRET_KEY_JWT
         const payload = {
             id: login[0].id,
+            fullname: login[0].fullname,
             username: login[0].username,
             email: login[0].email,
-            photo : login[0].photo
+            photo : login[0].photo,
+            phone: login[0].phone,
+            address: login[0].address,
+            city: login[0].city,
         }
         const verifyOption = {
             expiresIn: '1 day'
@@ -99,13 +104,6 @@ const listFlight = async (req, res, next) => {
         })
         let distance = haversine(departureDetail[0].loc.coordinates, arrivalDetail[0].loc.coordinates) / 1000
         const planes = await model.readAllairline()
-        console.log(planes)
-        // const planes = [
-        //     { id: 1, name: "garuda air", speed: 9, price: 0.06 },
-        //     { id: 2, name: "lion air", speed: 9.5, price: 0.07 },
-        //     { id: 3, name: "air air lah", speed: 8.5, price: 0.08 }
-        // ]
-        console.log(planes)
         const duration = (durasi) => {
             let hours = (durasi / 60);
             let rhours = Math.floor(hours);
@@ -210,10 +208,23 @@ const profile = async (req, res, next) => {
 }
 
 
+const allProfile = async (req, res, next) => {
+    try {
+        const all = model.readAlluser()
+        standartRespons.respons(res, all, 200, 'success')
+
+    } catch (error) {
+        console.log(error)
+        const err = new createError.InternalServerError()
+        next(err)
+    }
+}
+
 module.exports = {
     testController,
     register,
     login,
     listFlight,
-    profile
+    profile,
+    allProfile
 }
