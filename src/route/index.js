@@ -10,6 +10,9 @@ const route = express.Router()
 route.post('/register', controller.register)
 route.post('/login', controller.login)
 
+// user
+route.get('/profile', verifyToken , controller.profile)
+
 
 // FLIGHT
 route.post('/list-flight', controller.listFlight)

@@ -62,7 +62,6 @@ const readAllairline = () => {
     })
 }
 
-
 module.exports = {
     testModel,
     readUser,
