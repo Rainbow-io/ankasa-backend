@@ -210,8 +210,9 @@ const profile = async (req, res, next) => {
 
 const allProfile = async (req, res, next) => {
     try {
-        const all = model.readAlluser()
-        standartRespons.respons(res, all, 200, 'success')
+        const result = model.readAlluser()
+        console.log(result)
+        standartRespons.respons(res, result, 200, 'success')
 
     } catch (error) {
         console.log(error)
