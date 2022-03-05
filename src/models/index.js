@@ -26,6 +26,18 @@ const readUser = (email) => {
     })
 }
 
+const readUserId = (id) => {
+    return new Promise((resolve, reject) => {
+        connection.query(`SELECT * FROM users where idusers = ${id}`, (err, results) => {
+            if (err) {
+                reject(err)
+            } else {
+                resolve(results)
+            }
+        })
+    })
+}
+
 const readAlluser = () => {
     return new Promise((resolve,reject) => {
         connection.query('select * from users', (err, results) => {
@@ -65,6 +77,7 @@ const readAllairline = () => {
 module.exports = {
     testModel,
     readUser,
+    readUserId,
     readAlluser,
     insertUsers,
     readAllairline

@@ -195,9 +195,8 @@ const listFlight = async (req, res, next) => {
 
 const profile = async (req, res, next) => {
     try {
-        const token = req.headers.authorization.split(' ')[1]
-        const decoded = jwt.verify(token, process.env.SECRET_KEY_JWT)
-        const user = await model.readUser(decoded.email)
+        const idUser = req.params.id
+        const user = await model.readUserId(idUser)
         standartRespons.respons(res, user, 200, 'api success')
 
     } catch (error) {
