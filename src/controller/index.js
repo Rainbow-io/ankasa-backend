@@ -33,6 +33,7 @@ const register = async (req, res, next) => {
             idusers: idUser,
             fullname: fullname,
             username: fullname + idUser,
+            photo: 'https://pbs.twimg.com/profile_images/1176237957851881472/CHOXLj9b_400x400.jpg',
             email,
             password: hashpassword
         }
@@ -210,7 +211,6 @@ const profile = async (req, res, next) => {
 const allProfile = async (req, res, next) => {
     try {
         const result = await model.readAlluser()
-        console.log(result)
         standartRespons.respons(res, result, 200, 'success')
 
     } catch (error) {
