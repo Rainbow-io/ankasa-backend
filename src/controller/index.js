@@ -220,11 +220,34 @@ const allProfile = async (req, res, next) => {
     }
 }
 
+const changeProfile = async (req, res, next) => {
+    try {
+        const userid = req.params.id
+        const { fullname, email, phone, address, city} = req.body
+        const data = {
+            fullname,
+            email,
+            phone,
+            address,
+            city
+        }
+        
+        const result = await model.updateProfile(data, userid)
+        standartRespons.respons(res, data, 200, 'success')
+
+    } catch (error) {
+        console.log(error)
+        const err = new createError.InternalServerError()
+        next(err)
+    }
+}
+
 module.exports = {
     testController,
     register,
     login,
     listFlight,
     profile,
-    allProfile
+    allProfile,
+    changeProfile
 }

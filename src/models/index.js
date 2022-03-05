@@ -74,11 +74,25 @@ const readAllairline = () => {
     })
 }
 
+const updateProfile = (data, idUser) => {
+    return new Promise((resolve, reject) => {
+      connection.query('UPDATE users SET ? WHERE idusers = ?', [data, idUser], (error, result) => {
+        if (error) {
+          console.log(error)
+          reject(error)
+        } else {
+          resolve(result)
+        }
+      })
+    })
+  }
+
 module.exports = {
     testModel,
     readUser,
     readUserId,
     readAlluser,
     insertUsers,
-    readAllairline
+    readAllairline,
+    updateProfile
 }
