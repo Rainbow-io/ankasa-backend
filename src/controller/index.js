@@ -151,7 +151,7 @@ const listFlight = async (req, res, next) => {
             return 'wiw'
         }
 
-        const classList = ['bussines', 'economy']
+        const classList = ['bussines', 'economy', 'first class']
         let time = [1445, 70]
         console.log(duration(770))
         let dataPlane = []
@@ -194,10 +194,26 @@ const listFlight = async (req, res, next) => {
     }
 }
 
+const profile = async (req, res, next) => {
+    try {
+        const token = req.headers.authorization.split(' ')[1]
+        const decoded = jwt.verify(token, process.env.SECRET_KEY_JWT)
+        const user = await model.readUser(decoded.email)
+
+        responsStandart.respons(res, user, 200, 'api success')
+
+    } catch (error) {
+        console.log(error)
+        const err = new createError.InternalServerError()
+        next(err)
+    }
+}
+
 
 module.exports = {
     testController,
     register,
     login,
-    listFlight
+    listFlight,
+    profile
 }
