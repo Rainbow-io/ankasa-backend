@@ -13,6 +13,7 @@ route.post('/login', controller.login)
 // user
 route.get('/profile', verifyToken, controller.allProfile)
 route.get('/profile/:id', verifyToken , controller.profile)
+route.put('/profile/:id/form', verifyToken, controller.changeProfile)
 
 
 // FLIGHT
