@@ -9,12 +9,7 @@ const routeAll = require('./src/route/index')
 const { createServer } = require("http");
 const { Server } = require("socket.io");
 const httpServer = createServer(app);
-const io = new Server(httpServer, { 
-  cors: {
-    origin: "http://localhost:3000/",
-    methods: ["GET", "POST"]
-  }
- });
+const io = new Server(httpServer);
 
 
 const PORT = process.env.PORT || 1234
