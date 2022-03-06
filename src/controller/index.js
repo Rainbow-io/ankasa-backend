@@ -64,7 +64,7 @@ const login = async (req, res, next) => {
         const passHash = await bcrypt.compare(password, hashPass)
         const secretKey = process.env.SECRET_KEY_JWT
         const payload = {
-            id: login[0].id,
+            id: login[0].idusers,
             fullname: login[0].fullname,
             username: login[0].username,
             email: login[0].email,
