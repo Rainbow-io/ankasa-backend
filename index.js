@@ -27,8 +27,8 @@ io.on('connection', (socket) => {
   })
   
   socket.on('message', (data) =>{
-    console.log(data)
-    socket.to(data.sender).to(data.receiver).emit('message', (data))
+    socket.join(data.receiver)
+    socket.to(data.receiver).emit('message', (data))
     // socket.to(data.sender).emit('message', (data))
   })
 
