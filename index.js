@@ -26,10 +26,10 @@ io.on('connection', (socket) => {
     socket.join(id)
   })
   
-  socket.on('message',(sender, receiver, message)=>{
-    console.log(receiver, sender, message)
-    socket.to(receiver).emit('message', (sender, receiver, message) => {
-      console.log(receiver, sender, message)
+  socket.on('message', (data) =>{
+    console.log(data)
+    socket.to(data.receiver).emit('message', (data) => {
+      console.log(data)
     })
   })
 
