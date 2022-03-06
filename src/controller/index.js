@@ -72,6 +72,7 @@ const login = async (req, res, next) => {
             phone: login[0].phone,
             address: login[0].address,
             city: login[0].city,
+            postcode: login[0].postcode
         }
         const verifyOption = {
             expiresIn: '1 day'
@@ -223,13 +224,14 @@ const allProfile = async (req, res, next) => {
 const changeProfile = async (req, res, next) => {
     try {
         const userid = req.params.id
-        const { fullname, email, phone, address, city} = req.body
+        const { fullname, email, phone, address, city, postcode} = req.body
         const data = {
             fullname,
             email,
             phone,
             address,
-            city
+            city,
+            postcode
         }
         
         const result = await model.updateProfile(data, userid)
