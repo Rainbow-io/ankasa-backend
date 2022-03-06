@@ -25,15 +25,17 @@ io.on('connection', (socket) => {
     console.log(`user ${id} online`)
     socket.join(id)
   })
+  
+  socket.on('message',(sender, receiver, message)=>{
+    socket.to(receiver).emit('message', (sender, receiver, message))
+  })
+
 
   socket.on('disconnect', ()=> {
     console.log('user left');
   })
 
   
-  socket.on('sendMoney',(data)=>{
-    socket.to(data.receiver).emit('sendMoney', data)
-  })
 
 })
 
