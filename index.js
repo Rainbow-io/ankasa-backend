@@ -27,7 +27,10 @@ io.on('connection', (socket) => {
   })
   
   socket.on('message',(sender, receiver, message)=>{
-    socket.to(receiver).emit('message', (sender, receiver, message))
+    console.log(receiver, sender, message)
+    socket.to(receiver).emit('message', (sender, receiver, message) => {
+      console.log(receiver, sender, message)
+    })
   })
 
 
