@@ -27,7 +27,7 @@ io.on('connection', (socket) => {
   })
   
   socket.on('message', (data) =>{
-    socket.join('tesr')
+    socket.join('test')
     socket.to('test').emit('message', (data))
     // socket.to(data.sender).emit('message', (data))
   })
