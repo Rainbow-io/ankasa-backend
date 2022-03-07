@@ -28,10 +28,10 @@ io.on('connection', (socket) => {
   
   socket.on('message', (data) =>{
     console.log(data)
-    socket.broadcast.emit('message', data => {
-      console.log(data)
-    })
-    // socket.in(data.sender).emit('message', data)
+    socket.in(data.sender).emit('message', data)
+    // socket.broadcast.emit('message', data => {
+    //   console.log(data)
+    // })
     // socket.to(data.receiver).emit('message', data)
     // socket.join('test')
     // socket.to('test').emit('message', (data))
