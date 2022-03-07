@@ -16,4 +16,4 @@ Aplikasi ini adalah sebuah aplikasi yang digunakan untuk mencari tiket pesawat d
   11. redis
 
   ## skema database ankasa-tiket
-  <img src = "../ankasa-backend/Diagram Tanpa Judul-Halaman-2.drawio.png">
+  <img src = "../ankasa-backend/skema-database.png">
