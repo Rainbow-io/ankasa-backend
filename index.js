@@ -21,13 +21,13 @@ const PORT = process.env.PORT || 1234
 
 // socket
 io.on('connection', (socket) => {
-  socket.on('User ID', (id)=>{
+  io.on('User ID', (id)=>{
     console.log(`user ${id} online`)
     socket.join(id)
   })
   
-  socket.on('message', (data) =>{
-    socket.broadcast.emit('rmessage', data)
+  io.on('message', (data) =>{
+    socket.broadcast.emit('message', data)
     // socket.in(data.sender).emit('message', data)
     // socket.to(data.receiver).emit('message', data)
     // socket.join('test')
@@ -36,7 +36,7 @@ io.on('connection', (socket) => {
   })
 
 
-  socket.on('disconnect', ()=> {
+  io.on('disconnect', ()=> {
     console.log('user left');
   })
 
