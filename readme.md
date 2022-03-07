@@ -7,12 +7,13 @@ Aplikasi ini adalah sebuah aplikasi yang digunakan untuk mencari tiket pesawat d
   2. body-parser
   3. cors
   4. dotenv
-  5. ejs
-  6. express
-  7. jsonwebtoken
-  8. lodash
-  9. multer
-  10. mysql2
-  11. nodemailer
-  12. nodemon
-  13. redis
+  5. express
+  6. jsonwebtoken
+  7. multer
+  8. mysql2
+  9. nodemailer
+  10. nodemon
+  11. redis
+
+  ## skema database ankasa-tiket
+  <img src = "../ankasa-backend/Diagram Tanpa Judul-Halaman-2.drawio.png">
