@@ -347,5 +347,6 @@ module.exports = {
     bookingTest,
     bookingTestList,
     bookingDetail,
-    bookingDetailList
+    bookingDetailList,
+    bookingPay
 }
