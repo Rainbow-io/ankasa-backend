@@ -326,7 +326,7 @@ const bookingDetailList = async (req, res, next) => {
 const bookingPay = async (req, res, next) => {
     try {
         const idUser = req.params.id
-        const process = await model.putBooking(id)
+        const process = await model.putBooking(idUser)
         standartRespons.respons(res, process, 200, 'api success')
 
     } catch (error) {
