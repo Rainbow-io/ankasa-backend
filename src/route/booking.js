@@ -11,7 +11,7 @@ router
 .get('/list/:id', bookingController.bookingDetailList)
 .get('/detail/:id', bookingController.bookingDetail)
 .put('/list/pay/:id', bookingController.bookingPay)
-.get('/list/success/:id', bookingController.bookingSuccess)
+// .get('/list/success/:id', bookingController.bookingSuccess)
     // .get('/getAll', authentication, authorization, bookingController.getAllData)
     // .get('/getDetail/:idbooking', authentication, authorization, bookingController.getDetail)
     // .get('/getBookingUser/:idusers', authentication, authorization, bookingController.getBookingUser)
