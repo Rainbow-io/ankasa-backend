@@ -282,7 +282,7 @@ const bookingTest = async (req, res, next) => {
 const bookingDetail = async (req, res, next) => {
     try {
         const idUser = req.params.id
-        const process = await model.bookingPost(idUser)
+        const process = await model.readBooking(idUser)
         standartRespons.respons(res, process, 200, 'api success')
 
     } catch (error) {
