@@ -161,7 +161,7 @@ const putBooking = (id) => {
 
 const successBooking = (id) => {
     return new Promise((resolve,reject) => {
-        connection.query(`SELECT * FROM booking_list where id = ${id} AND status = 'success'`, (err, results) => {
+        connection.query(`SELECT * FROM booking_list WHERE id = ${id} AND status = 'success'`, (err, results) => {
             if (err) {
               reject(err)
             } else {

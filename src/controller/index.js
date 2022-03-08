@@ -339,7 +339,7 @@ const bookingPay = async (req, res, next) => {
 const bookingSuccess = async (req, res, next) => {
     try {
         const idUser = req.params.id
-        const process = await model.putBooking(idUser)
+        const process = await model.successBooking(idUser)
         standartRespons.respons(res, process, 200, 'api success')
 
     } catch (error) {
@@ -362,5 +362,6 @@ module.exports = {
     bookingTestList,
     bookingDetail,
     bookingDetailList,
-    bookingPay
+    bookingPay,
+    bookingSuccess
 }
