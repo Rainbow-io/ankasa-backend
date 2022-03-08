@@ -263,6 +263,24 @@ const changePhoto = async (req, res, next) => {
     }
 }
 
+const changePhotoLink = async (req, res, next) => {
+    try {
+        const userid = req.params.id
+        const {photo} = req.body
+        const data = {
+            photo
+        }
+        
+        const result = await model.updateProfile(photo, userid)
+        standartRespons.respons(res, data.photo, 200, 'success update photo')
+
+    } catch (error) {
+        console.log(error)
+        const err = new createError.InternalServerError()
+        next(err)
+    }
+}
+
 const bookingTest = async (req, res, next) => {
     try {
         const { id, departure, arrival, airline, logo, duration, price, facilities, departure_type, arrival_type, departure_time, arrival_time, transit, classname, date, qty } = req.body
@@ -358,6 +376,7 @@ module.exports = {
     allProfile,
     changeProfile,
     changePhoto,
+    changePhotoLink,
     bookingTest,
     bookingTestList,
     bookingDetail,

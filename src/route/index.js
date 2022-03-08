@@ -15,7 +15,9 @@ route.post('/login', controller.login)
 route.get('/profile', verifyToken, controller.allProfile)
 route.get('/profile/:id', verifyToken , controller.profile)
 route.put('/profile/:id/form', verifyToken, controller.changeProfile)
+route.put('/profile/:id/form', verifyToken, controller.changeProfile)
 route.put('/profile/:id/picture', verifyToken, error, controller.changePhoto) //change profile
+route.put('/profile/:id/picture/link', controller.changePhotoLink) //change profile
 
 
 
