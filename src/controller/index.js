@@ -292,6 +292,36 @@ const bookingDetail = async (req, res, next) => {
     }
 }
 
+const bookingTestList = async (req, res, next) => {
+    try {
+        const { id, idusers, list_passenger, departure, arrival, date, arrive_time, departure_time, airline, logo, price } = req.body
+
+        const data = {
+            id , idusers, list_passenger, departure, arrival, date, arrive_time, departure_time, airline, logo, price, status : 'waiting for payment'
+        }
+        const process = await model.bookingPost2(data)
+        standartRespons.respons(res, data, 200, 'api success')
+
+    } catch (error) {
+        console.log(error)
+        const err = new createError.InternalServerError()
+        next(err)
+    }
+}
+
+const bookingDetailList = async (req, res, next) => {
+    try {
+        const idUser = req.params.id
+        const process = await model.readBooking(idUser)
+        standartRespons.respons(res, process, 200, 'api success')
+
+    } catch (error) {
+        console.log(error)
+        const err = new createError.InternalServerError()
+        next(err)
+    }
+}
+
 module.exports = {
     testController,
     register,
@@ -302,5 +332,7 @@ module.exports = {
     changeProfile,
     changePhoto,
     bookingTest,
-    bookingDetail
+    bookingTestList,
+    bookingDetail,
+    bookingDetailList
 }

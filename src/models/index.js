@@ -99,6 +99,18 @@ const updateProfile = (data, idUser) => {
     })
 }
 
+const bookingPost2 = (data) => {
+    return new Promise((resolve, reject) => {
+        connection.query('INSERT INTO booking_list SET ?', data, (error, result) => {
+            if (error) {
+                reject(error)
+            } else {
+                resolve(result)
+            }
+        })
+    })
+}
+
 const readBooking = (id) => {
     return new Promise((resolve,reject) => {
         connection.query(`SELECT * FROM booking where id = ${id}`, (err, results) => {
@@ -111,6 +123,31 @@ const readBooking = (id) => {
     })
 }
 
+const readBookingList = (id) => {
+    return new Promise((resolve,reject) => {
+        connection.query(`SELECT * FROM booking_list where id = ${id}`, (err, results) => {
+            if (err) {
+              reject(err)
+            } else {
+              resolve(results)
+            }
+        })
+    })
+}
+
+const readAllBookingList = () => {
+    return new Promise((resolve,reject) => {
+        connection.query(`SELECT * FROM booking_list`, (err, results) => {
+            if (err) {
+              reject(err)
+            } else {
+              resolve(results)
+            }
+        })
+    })
+}
+
+
 module.exports = {
     testModel,
     readUser,
@@ -120,5 +157,7 @@ module.exports = {
     readAllairline,
     updateProfile,
     bookingPost,
-    readBooking
+    bookingPost2,
+    readBooking,
+    readAllBookingList
 }
