@@ -268,7 +268,7 @@ const bookingTest = async (req, res, next) => {
         const { id, departure, arrival, airline, logo, duration, price, facilies, departure_type, arrival_type, departure_time, arrival_time, transit, classname, date, qty } = req.body
         const idUser = req.params.id
         const data = {
-            id : idUser, departure, arrival, airline, logo, duration, price, facilies, departure_type, arrival_type, departure_time, arrival_time, transit, classname, date, qty
+            id : idUser, departure, arrival, airline, logo, duration, price, facilties, departure_type, arrival_type, departure_time, arrival_time, transit, classname, date, qty
         }
         const process = await model.bookingPost(data)
         standartRespons.respons(res, data, 200, 'api success')
