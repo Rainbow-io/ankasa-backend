@@ -143,7 +143,7 @@ const listFlight = async (req, res, next) => {
             let minutes = (hours - rhours) * 60;
             let rminutes = Math.round(minutes);
             if (rhours > 24) {
-                rhours - 24
+                rhours = rhours - 24
             }
             at = `${rhours} : ${rminutes}`
             if (rhours >= 0 && rhours <= 6) {
