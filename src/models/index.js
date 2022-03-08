@@ -147,6 +147,18 @@ const readAllBookingList = (id) => {
     })
 }
 
+const putBooking = (id) => {
+    return new Promise((resolve,reject) => {
+        connection.query(`UPDATE booking_list SET status= 'success' where id = ${id}`, (err, results) => {
+            if (err) {
+              reject(err)
+            } else {
+              resolve(results)
+            }
+        })
+    })
+}
+
 
 module.exports = {
     testModel,
@@ -159,5 +171,6 @@ module.exports = {
     bookingPost,
     bookingPost2,
     readBooking,
-    readAllBookingList
+    readAllBookingList,
+    putBooking
 }
