@@ -122,9 +122,7 @@ const listFlight = async (req, res, next) => {
             let minutes = (hours - rhours) * 60;
             let rminutes = Math.round(minutes);
             dt = `${rhours} : ${rminutes}`
-            if (rhours > 24) {
-                rhours - 24
-            }else if (rhours >= 0 && rhours <= 6) {
+            if (rhours >= 0 && rhours <= 6) {
                 return 'early'
             } else if (rhours >= 7 && rhours <= 12) {
                 return 'mid-early'
@@ -144,6 +142,9 @@ const listFlight = async (req, res, next) => {
             let rhours = Math.floor(hours);
             let minutes = (hours - rhours) * 60;
             let rminutes = Math.round(minutes);
+            if (rhours > 24) {
+                rhours - 24
+            }
             at = `${rhours} : ${rminutes}`
             if (rhours >= 0 && rhours <= 6) {
                 return 'early'
