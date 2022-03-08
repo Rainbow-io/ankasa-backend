@@ -87,7 +87,17 @@ const updateProfile = (data, idUser) => {
     })
   }
 
-
+  const bookingPost = (data) => {
+    return new Promise((resolve, reject) => {
+        connection.query('INSERT INTO booking SET ?', data, (error, result) => {
+            if (error) {
+                reject(error)
+            } else {
+                resolve(result)
+            }
+        })
+    })
+}
 
 module.exports = {
     testModel,
@@ -96,5 +106,6 @@ module.exports = {
     readAlluser,
     insertUsers,
     readAllairline,
-    updateProfile
+    updateProfile,
+    bookingPost
 }

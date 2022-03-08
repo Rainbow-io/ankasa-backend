@@ -6,6 +6,7 @@ const cors = require('cors')
 const morgan = require('morgan')
 const bodyParser = require('body-parser');
 const routeAll = require('./src/route/index')
+const bookingRoute = require('./src/route/booking')
 const { createServer } = require("http");
 const { Server } = require("socket.io");
 const httpServer = createServer(app);
@@ -58,6 +59,7 @@ app.use(morgan('dev'))
 
 // routes
 app.use('/app', routeAll)
+app.use('/booking', bookingRoute)
 
 
 

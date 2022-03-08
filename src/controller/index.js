@@ -5,6 +5,7 @@ const standartRespons = require('../helper/common')
 const jwt = require('jsonwebtoken')
 const cities = require('all-the-cities');
 const haversine = require('haversine-distance')
+const { insert } = require('./booking')
 
 
 
@@ -262,6 +263,23 @@ const changePhoto = async (req, res, next) => {
     }
 }
 
+const bookingTest = async (req, res, next) => {
+    try {
+        const { id, departure, arrival, airline, logo, duration, price, facilies, departure_type, arrival_type, departure_time, arrival_time, transit, classname, date, qty } = req.body
+        const idUser = req.params.id
+        const data = {
+            id : idUser, departure, arrival, airline, logo, duration, price, facilies, departure_type, arrival_type, departure_time, arrival_time, transit, classname, date, qty
+        }
+        const process = await model.bookingPost(data)
+        standartRespons.respons(res, data, 200, 'api success')
+
+    } catch (error) {
+        console.log(error)
+        const err = new createError.InternalServerError()
+        next(err)
+    }
+}
+
 module.exports = {
     testController,
     register,
@@ -270,5 +288,6 @@ module.exports = {
     profile,
     allProfile,
     changeProfile,
-    changePhoto
+    changePhoto,
+    bookingTest
 }
