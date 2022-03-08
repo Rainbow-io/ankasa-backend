@@ -268,10 +268,10 @@ const changePhotoLink = async (req, res, next) => {
         const userid = req.params.id
         const {photo} = req.body
         const data = {
-            photo
+            photo 
         }
         
-        const result = await model.updateProfile(photo, userid)
+        const result = await model.updateProfile(data, userid)
         standartRespons.respons(res, data.photo, 200, 'success update photo')
 
     } catch (error) {
