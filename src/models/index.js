@@ -99,6 +99,18 @@ const updateProfile = (data, idUser) => {
     })
 }
 
+const readBooking = (id) => {
+    return new Promise((resolve,reject) => {
+        connection.query(`SELECT * FROM booking where id = ${id}`, (err, results) => {
+            if (err) {
+              reject(err)
+            } else {
+              resolve(results)
+            }
+        })
+    })
+}
+
 module.exports = {
     testModel,
     readUser,

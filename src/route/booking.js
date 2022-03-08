@@ -6,7 +6,8 @@ const { verifyToken } = require('../helper/auth')
 
 
 router
-.post('/insert/:id', bookingController.bookingTest )
+.post('/insert/', bookingController.bookingTest )
+.get('/detail/', bookingController.bookingDetail )
     // .get('/getAll', authentication, authorization, bookingController.getAllData)
     // .get('/getDetail/:idbooking', authentication, authorization, bookingController.getDetail)
     // .get('/getBookingUser/:idusers', authentication, authorization, bookingController.getBookingUser)
