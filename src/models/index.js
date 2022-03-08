@@ -64,7 +64,7 @@ const insertUsers = (data) => {
 
 const readAllairline = () => {
     return new Promise((resolve,reject) => {
-        connection.query('SELECT * FROM airline', (err, results) => {
+        connection.query('SELECT * FROM airlines', (err, results) => {
             if (err) {
               reject(err)
             } else {
