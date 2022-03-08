@@ -119,5 +119,6 @@ module.exports = {
     insertUsers,
     readAllairline,
     updateProfile,
-    bookingPost
+    bookingPost,
+    readBooking
 }
