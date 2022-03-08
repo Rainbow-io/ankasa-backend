@@ -335,6 +335,20 @@ const bookingPay = async (req, res, next) => {
         next(err)
     }
 }
+
+const bookingSuccess = async (req, res, next) => {
+    try {
+        const idUser = req.params.id
+        const process = await model.putBooking(idUser)
+        standartRespons.respons(res, process, 200, 'api success')
+
+    } catch (error) {
+        console.log(error)
+        const err = new createError.InternalServerError()
+        next(err)
+    }
+}
+
 module.exports = {
     testController,
     register,
