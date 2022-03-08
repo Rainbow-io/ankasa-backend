@@ -135,9 +135,9 @@ const readBookingList = (id) => {
     })
 }
 
-const readAllBookingList = () => {
+const readAllBookingList = (id) => {
     return new Promise((resolve,reject) => {
-        connection.query(`SELECT * FROM booking_list`, (err, results) => {
+        connection.query(`SELECT * FROM booking_list where idusers = ${id}`, (err, results) => {
             if (err) {
               reject(err)
             } else {
