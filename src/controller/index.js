@@ -378,6 +378,9 @@ const bookingDetailListPayment = async (req, res, next) => {
     try {
         const idUser = req.params.id
         const process = await model.readBookingDetail(idUser)
+        if(process.status == 'success'){
+            return standartRespons.respons(res, null, 200, 'this booking already pay')
+        }
         standartRespons.respons(res, process, 200, 'api success')
 
     } catch (error) {
