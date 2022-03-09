@@ -374,6 +374,19 @@ const bookingSuccess = async (req, res, next) => {
     }
 }
 
+const bookingDetailListPayment = async (req, res, next) => {
+    try {
+        const idUser = req.params.id
+        const process = await model.readBookingDetail(idUser)
+        standartRespons.respons(res, process, 200, 'api success')
+
+    } catch (error) {
+        console.log(error)
+        const err = new createError.InternalServerError()
+        next(err)
+    }
+}
+
 module.exports = {
     testController,
     register,
@@ -389,5 +402,6 @@ module.exports = {
     bookingDetail,
     bookingDetailList,
     bookingPay,
-    bookingSuccess
+    bookingSuccess,
+    bookingDetailListPayment
 }
