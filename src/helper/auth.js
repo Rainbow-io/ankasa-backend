@@ -10,7 +10,7 @@ const verifyToken = (req, res, next) => {
     }
     try {
         const decoded = jwt.verify(token, process.env.SECRET_KEY_JWT) 
-        // console.log('hasil token', decoded)
+        console.log('hasil token', decoded)
         req.email = decoded.email
         req.role = decoded.role
     } catch (error) {

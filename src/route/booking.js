@@ -10,7 +10,7 @@ router
 .post('/list', verifyToken, bookingController.bookingTestList )
 .get('/list/:id', verifyToken, bookingController.bookingDetailList)
 .get('/detail/:id', verifyToken, bookingController.bookingDetail)
-.put('/list/pay/:id', verifyToken, bookingController.bookingPay)
+.put('/list/pay/:id',  verifyToken, bookingController.bookingPay)
 .get('/list/success/:id', verifyToken, bookingController.bookingSuccess)
 .get('/list/payment/:id', verifyToken, bookingController.bookingDetailListPayment)
     // .get('/getAll', authentication, authorization, bookingController.getAllData)
